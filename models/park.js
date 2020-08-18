@@ -40,5 +40,14 @@ Park.prototype.dailyVisitors = function(){
     return total;
 }
 
+Park.prototype.yearlyRevenue = function(){
+    let dailyRevenue =0;
+
+    for(const dinosaur of this.dinosaurs){
+        dailyRevenue += dinosaur.guestsAttractedPerDay * this.ticket_price;
+    }
+    return dailyRevenue * 365;
+}
+
 module.exports = Park;
 

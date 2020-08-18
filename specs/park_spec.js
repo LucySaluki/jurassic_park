@@ -17,7 +17,7 @@ describe('Park', function() {
     dino4 = new Dinosaur("Heterodontosaurus",'ominvore',10)
     dino5 = new Dinosaur("Velociraptor", "carnivore",100);
     dino6 = new Dinosaur("Brontosaurus","herbivore",80);
-    park = new Park("Jurassic Park",20,dinosaurs);
+    park = new Park("Jurassic Park",200,dinosaurs);
     park.addDinosaur(dino1);
     park.addDinosaur(dino2);
     park.addDinosaur(dino3);
@@ -30,7 +30,7 @@ describe('Park', function() {
   });
 
   it('should have a ticket price', function() {
-      assert.strictEqual(20,park.ticket_price);
+      assert.strictEqual(200,park.ticket_price);
   });
 
   it('should have a collection of dinosaurs', function() {
@@ -64,8 +64,14 @@ describe('Park', function() {
     assert.strictEqual(360, total);
   });
 
-  it('should be able to calculate the total number of visitors per year');
+  it('should be able to calculate the total number of visitors per year', function() {
+    const yearTotal = park.dailyVisitors() * 365;
+    assert.strictEqual(131400,yearTotal);
+  });
 
-  it('should be able to calculate total revenue for one year');
+  it('should be able to calculate total revenue for one year', function() {
+    const yearRevenue = park.yearlyRevenue();
+    assert.strictEqual(26280000,yearRevenue);
+  });
 
 });
