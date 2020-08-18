@@ -12,7 +12,7 @@ describe('Park', function() {
 
   beforeEach(function () {
     dino1 = new Dinosaur("Tyrannosaur Rex", "carnivore",40);
-    dino2 = new Dinosaur("Velociraptor", "carnivore",100);
+    dino2 = new Dinosaur("Velociraptor", "carnivore",150);
     dino3 = new Dinosaur("Tricerotops","herbivore",60);
     dino4 = new Dinosaur("Heterodontosaurus",'ominvore',10)
     dino5 = new Dinosaur("Velociraptor", "carnivore",100);
@@ -47,7 +47,10 @@ describe('Park', function() {
     assert.strictEqual(2,dinos); 
   });
 
-  it('should be able to find the dinosaur that attracts the most visitors');
+  it('should be able to find the dinosaur that attracts the most visitors', function(){
+      const dino = park.popularDinosaur();
+      assert.strictEqual( "Velociraptor",dino);
+  });
 
   it('should be able to find all dinosaurs of a particular species');
 
