@@ -28,6 +28,17 @@ Park.prototype.allDinosaurs = function(species) {
             allDinos.push(dinosaur);
         }
 
-    } return allDinos
+    } return allDinos;
 }
+
+Park.prototype.dailyVisitors = function(){
+    let total =0;
+
+    for(const dinosaur of this.dinosaurs){
+        total += dinosaur.guestsAttractedPerDay;
+    }
+    return total;
+}
+
 module.exports = Park;
+

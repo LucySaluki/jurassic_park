@@ -59,7 +59,10 @@ describe('Park', function() {
     const velo = park.allDinosaurs("Velociraptor");
     assert.strictEqual( 2,velo.length);
   });
-  it('should be able to calculate the total number of visitors per day');
+  it('should be able to calculate the total number of visitors per day', function () {
+    const total = park.dailyVisitors();
+    assert.strictEqual(360, total);
+  });
 
   it('should be able to calculate the total number of visitors per year');
 
