@@ -15,18 +15,21 @@ describe('Park', function() {
     dino2 = new Dinosaur("Velociraptor", "carnivore",100);
     dino3 = new Dinosaur("Tricerotops","herbivore",60);
     dino4 = new Dinosaur("Heterodontosaurus",'ominvore',10)
-    park = new Park("Jurassic Park",20, dinosaurs);
+    park = new Park("Jurassic Park",20,dinosaurs);
   })
 
   it('should have a name', function() {
-        assert.strictEqual("Jurassic Park",park.name);
+      assert.strictEqual("Jurassic Park",park.name);
   });
 
   it('should have a ticket price', function() {
-        assert.strictEqual(20,park.ticket_price);
+      assert.strictEqual(20,park.ticket_price);
   });
 
-  it('should have a collection of dinosaurs');
+  it('should have a collection of dinosaurs', function() {
+      const dinos = park.dinosaurs.length;
+      assert.strictEqual(0,dinos);
+  });
 
   it('should be able to add a dinosaur to its collection');
 
