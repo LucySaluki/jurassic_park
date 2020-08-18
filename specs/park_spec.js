@@ -15,7 +15,11 @@ describe('Park', function() {
     dino2 = new Dinosaur("Velociraptor", "carnivore",100);
     dino3 = new Dinosaur("Tricerotops","herbivore",60);
     dino4 = new Dinosaur("Heterodontosaurus",'ominvore',10)
+    dino5 = new Dinosaur("Velociraptor", "carnivore",100);
     park = new Park("Jurassic Park",20,dinosaurs);
+    park.addDinosaur(dino1);
+    park.addDinosaur(dino2);
+    park.addDinosaur(dino3);
   })
 
   it('should have a name', function() {
@@ -28,16 +32,20 @@ describe('Park', function() {
 
   it('should have a collection of dinosaurs', function() {
       const dinos = park.dinosaurs.length;
-      assert.strictEqual(0,dinos);
+      assert.strictEqual(3,dinos);
   });
 
   it('should be able to add a dinosaur to its collection', function() {
     park.addDinosaur(dino1);
     const dinos = park.dinosaurs.length;
-    assert.strictEqual(1,dinos);
+    assert.strictEqual(4,dinos);
 });
 
-  it('should be able to remove a dinosaur from its collection');
+  it('should be able to remove a dinosaur from its collection', function(){
+    park.dinosaurs.pop();
+    const dinos = park.dinosaurs.length;
+    assert.strictEqual(2,dinos); 
+  });
 
   it('should be able to find the dinosaur that attracts the most visitors');
 
