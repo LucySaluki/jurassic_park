@@ -8,19 +8,23 @@ describe('Park', function() {
   let dino3;
   let dino4;
   let dinosaurs = [];
+  let park;
 
   beforeEach(function () {
     dino1 = new Dinosaur("Tyrannosaur Rex", "carnivore",40);
     dino2 = new Dinosaur("Velociraptor", "carnivore",100);
     dino3 = new Dinosaur("Tricerotops","herbivore",60);
     dino4 = new Dinosaur("Heterodontosaurus",'ominvore',10)
+    park = new Park("Jurassic Park",20, dinosaurs);
   })
 
   it('should have a name', function() {
-    const park = new Park("Jurassic Park",20, dinosaurs);
-    assert.strictEqual("Jurassic Park",park.name);
+        assert.strictEqual("Jurassic Park",park.name);
   });
-  it('should have a ticket price');
+
+  it('should have a ticket price', function() {
+        assert.strictEqual(20,park.ticket_price);
+  });
 
   it('should have a collection of dinosaurs');
 
