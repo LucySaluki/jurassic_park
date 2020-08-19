@@ -8,9 +8,14 @@ Park.prototype.addDinosaur = function(dinosaur) {
     this.dinosaurs.push(dinosaur);
 }
 
+Park.prototype.removeDinosaur= function(dinosaur){
+    const index = this.dinosaurs.indexOf(dinosaur);
+    this.dinosaurs.splice(index,1);
+}
+
 Park.prototype.popularDinosaur = function() {
     let guestCount=0;
-    
+    let popularDino = "";
     for (const dinosaur of this.dinosaurs) {
         if (dinosaur.guestsAttractedPerDay > guestCount) {
             guestCount=dinosaur.guestsAttractedPerDay;
@@ -21,9 +26,9 @@ Park.prototype.popularDinosaur = function() {
 }
 
 Park.prototype.allDinosaurs = function(species) {
-    let allDinos = [];
+    const allDinos = [];
 
-    for (const dinosaur of this.dinosaurs) {
+    for (let dinosaur of this.dinosaurs) {
         if (dinosaur.species === species) {
             allDinos.push(dinosaur);
         }
@@ -40,6 +45,10 @@ Park.prototype.dailyVisitors = function(){
     return total;
 }
 
+Park.prototype.yearlyVisitors = function(){
+    return this.dailyVisitors() * 365;
+}
+
 Park.prototype.yearlyRevenue = function(){
     let dailyRevenue =0;
 
@@ -49,8 +58,8 @@ Park.prototype.yearlyRevenue = function(){
     return dailyRevenue * 365;
 }
 
-Park.prototype.removeDinosaur = function(species){
-    let safeDinos = [];
+Park.prototype.removeDangerDinosaur = function(species){
+    const safeDinos = [];
 
     for (const dinosaur of this.dinosaurs){
         if (dinosaur.species !== species){
@@ -59,8 +68,17 @@ Park.prototype.removeDinosaur = function(species){
     } this.dinosaurs= safeDinos;
 }
 
+Park.prototype.altRemoveDinosaurs = function(species){
+    const toRemove  = this.allDinosaurs(species);
+
+    for (const dino of toRemove) {
+        this.removeDinosaur(dino);
+    }
+}
+
+
 Park.prototype.countDiet = function(){
-    let dinoDiet=[];
+    let dinoDiet={};
     let carni = 0;
     let herb = 0;
     let omni = 0;
@@ -81,6 +99,17 @@ Park.prototype.countDiet = function(){
     return dinoDiet;
 }
 
+Park.prototype.altCountDiet = function (){
+    const dinosByDiet = {};
+
+    for (const dino of this.dinosaurs){
+        if(dinosByDiet[dino.diet]){
+            dinosByDiet[dino.diet] += 1;
+        } else {
+            dinosByDiet[dino.diet]=1;
+        }
+} return dinosByDiet;
+}
 
 module.exports = Park;
 

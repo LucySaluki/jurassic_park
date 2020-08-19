@@ -45,7 +45,7 @@ describe('Park', function() {
 });
 
   it('should be able to remove a dinosaur from its collection', function(){
-    park.dinosaurs.pop();
+    park.removeDinosaur("Tricerotops");
     const dinos = park.dinosaurs.length;
     assert.strictEqual(4,dinos); 
   });
@@ -65,7 +65,7 @@ describe('Park', function() {
   });
 
   it('should be able to calculate the total number of visitors per year', function() {
-    const yearTotal = park.dailyVisitors() * 365;
+    const yearTotal = park.yearlyVisitors();
     assert.strictEqual(131400,yearTotal);
   });
 
@@ -75,19 +75,19 @@ describe('Park', function() {
   });
 
   it('should be able to remove all dinosaurs of a particular species Velociraptor', function() {
-    const safeDinos=park.removeDinosaur("Velociraptor");
+    const safeDinos=park.removeDangerDinosaur("Velociraptor");
     const numDinos = park.dinosaurs.length;
     assert.strictEqual(3,numDinos)
   });
 
   it('should be able to remove all dinosaurs of a particular species Tricerotops', function() {
-    const safeDinos=park.removeDinosaur("Tricerotops");
+    const safeDinos=park.removeDangerDinosaur("Tricerotops");
     const numDinos = park.dinosaurs.length;
     assert.strictEqual(4,numDinos)
   });
 
   it('should be able to count all diets', function() {
-    const diet=park.countDiet();
+    const diet = park.altCountDiet();
     assert.strictEqual(3,diet.carnivore)
   });
 });
