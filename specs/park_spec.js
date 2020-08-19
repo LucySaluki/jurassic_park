@@ -76,7 +76,7 @@ describe('Park', function() {
 
   it('should be able to remove all dinosaurs of a particular species', function() {
     const safeDinos=park.removeDinosaur("Velociraptor");
-    const numDinos = safeDinos.length;
+    const numDinos = park.dinosaurs.length;
     assert.strictEqual(3,numDinos)
   });
 });

@@ -56,7 +56,7 @@ Park.prototype.removeDinosaur = function(species){
         if (dinosaur.species !== species){
             safeDinos.push(dinosaur);
         }
-    } return safeDinos
+    } this.dinosaurs= safeDinos;
 }
 module.exports = Park;
 
