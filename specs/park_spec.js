@@ -74,9 +74,15 @@ describe('Park', function() {
     assert.strictEqual(26280000,yearRevenue);
   });
 
-  it('should be able to remove all dinosaurs of a particular species', function() {
+  it('should be able to remove all dinosaurs of a particular species Velociraptor', function() {
     const safeDinos=park.removeDinosaur("Velociraptor");
     const numDinos = park.dinosaurs.length;
     assert.strictEqual(3,numDinos)
+  });
+
+  it('should be able to remove all dinosaurs of a particular species Tricerotops', function() {
+    const safeDinos=park.removeDinosaur("Tricerotops");
+    const numDinos = park.dinosaurs.length;
+    assert.strictEqual(4,numDinos)
   });
 });
