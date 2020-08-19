@@ -58,5 +58,29 @@ Park.prototype.removeDinosaur = function(species){
         }
     } this.dinosaurs= safeDinos;
 }
+
+Park.prototype.countDiet = function(){
+    let dinoDiet=[];
+    let carni = 0;
+    let herb = 0;
+    let omni = 0;
+
+    for (const dinosaur of this.dinosaurs) {
+        if (dinosaur.diet ==="carnivore") {
+            carni += 1; 
+        } 
+        else if (dinosaur.diet === "herbivore") {
+            herb += 1; 
+        }
+        else {
+            omni +=1;
+        }
+    } dinoDiet.carnivore = carni;
+    dinoDiet.herbivore=herb;
+    dinoDiet.ominvore = omni;
+    return dinoDiet;
+}
+
+
 module.exports = Park;
 

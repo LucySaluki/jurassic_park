@@ -14,7 +14,7 @@ describe('Park', function() {
     dino1 = new Dinosaur("Tyrannosaur Rex", "carnivore",40);
     dino2 = new Dinosaur("Velociraptor", "carnivore",150);
     dino3 = new Dinosaur("Tricerotops","herbivore",60);
-    dino4 = new Dinosaur("Heterodontosaurus",'ominvore',10)
+    dino4 = new Dinosaur("Heterodontosaurus",'omnivore',10)
     dino5 = new Dinosaur("Velociraptor", "carnivore",100);
     dino6 = new Dinosaur("Brontosaurus","herbivore",80);
     park = new Park("Jurassic Park",200,dinosaurs);
@@ -84,5 +84,10 @@ describe('Park', function() {
     const safeDinos=park.removeDinosaur("Tricerotops");
     const numDinos = park.dinosaurs.length;
     assert.strictEqual(4,numDinos)
+  });
+
+  it('should be able to count all diets', function() {
+    const diet=park.countDiet();
+    assert.strictEqual(3,diet.carnivore)
   });
 });
